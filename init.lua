@@ -637,7 +637,7 @@ require('lazy').setup({
         -- Disable "format_on_save lsp_fallback" for languages that don't
         -- have a well standardized coding style. You can add additional
         -- languages here or re-enable it for the disabled ones.
-        local disable_filetypes = { c = true, cpp = true, php = true }
+        local disable_filetypes = { c = true, cpp = true, php = true, vue = true }
         return {
           timeout_ms = 500,
           lsp_fallback = not disable_filetypes[vim.bo[bufnr].filetype],
@@ -647,6 +647,7 @@ require('lazy').setup({
         lua = { 'stylua' },
         sh = { 'beautysh' },
         bash = { 'beautysh' },
+        vue = { 'prettier', lsp_fallback = false },
         -- Conform can also run multiple formatters sequentially
         -- python = { "isort", "black" },
         --
@@ -880,7 +881,7 @@ require('lazy').setup({
   --
   --  Uncomment the following line and add your plugins to `lua/custom/plugins/*.lua` to get going.
   --    For additional information, see `:help lazy.nvim-lazy.nvim-structuring-your-plugins`
-  -- { import = 'custom.plugins' },
+  { import = 'custom.plugins' },
 }, {
   ui = {
     -- If you are using a Nerd Font: set icons to an empty table which will use the
